@@ -43,7 +43,7 @@ public class SignUpRequest {
 
     private String mbti;
 
-    private String favoriteImageUrl;
+    private List<String> favoriteImageUrls;
 
     private String profileImageUrl;
 
@@ -60,7 +60,7 @@ public class SignUpRequest {
                 .age(age)
                 .introduction(introduction)
                 .mbti(mbti)
-                .favoriteImage(favoriteImageUrl)
+                .favoriteImages(favoriteImageUrls)
                 .profileImage(profileImageUrl)
                 .build();
     }

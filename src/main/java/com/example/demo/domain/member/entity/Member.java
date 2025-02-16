@@ -3,6 +3,7 @@ package com.example.demo.domain.member.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
+import java.util.ArrayList;
 
 @Entity
 @Getter
@@ -46,7 +47,10 @@ public class Member {
 
     private String mbti;
 
-    private String favoriteImage;  // 최애 이미지
+    @ElementCollection
+    @CollectionTable(name = "member_favorite_images", joinColumns = @JoinColumn(name = "member_id"))
+    @Column(name = "image_url")
+    private List<String> favoriteImages;  // 최애 이미지 목록
 
     private String profileImage;  // 프로필 이미지
 
@@ -73,7 +77,14 @@ public class Member {
         this.profileImage = profileImage;
     }
 
-    public void updateFavoriteImage(String favoriteImage) {
-        this.favoriteImage = favoriteImage;
+    public void updateFavoriteImages(List<String> favoriteImages) {
+        this.favoriteImages = favoriteImages;
+    }
+
+    public void addFavoriteImage(String favoriteImage) {
+        if (this.favoriteImages == null) {
+            this.favoriteImages = new ArrayList<>();
+        }
+        this.favoriteImages.add(favoriteImage);
     }
 } 

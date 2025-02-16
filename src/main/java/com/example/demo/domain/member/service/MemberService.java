@@ -72,8 +72,8 @@ public class MemberService {
         if (request.getProfileImageUrl() != null) {
             member.updateProfileImage(request.getProfileImageUrl());
         }
-        if (request.getFavoriteImageUrl() != null) {
-            member.updateFavoriteImage(request.getFavoriteImageUrl());
+        if (request.getFavoriteImageUrls() != null) {
+            member.updateFavoriteImages(request.getFavoriteImageUrls());
         }
 
         return ProfileResponse.from(member);

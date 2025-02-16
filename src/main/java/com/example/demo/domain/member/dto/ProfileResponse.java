@@ -19,7 +19,7 @@ public class ProfileResponse {
     private Integer age;
     private String introduction;
     private String mbti;
-    private String favoriteImageUrl;
+    private List<String> favoriteImageUrls;
     private String profileImageUrl;
 
     public static ProfileResponse from(Member member) {
@@ -34,7 +34,7 @@ public class ProfileResponse {
                 .age(member.getAge())
                 .introduction(member.getIntroduction())
                 .mbti(member.getMbti())
-                .favoriteImageUrl(member.getFavoriteImage())
+                .favoriteImageUrls(member.getFavoriteImages())
                 .profileImageUrl(member.getProfileImage())
                 .build();
     }

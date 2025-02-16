@@ -20,6 +20,6 @@ public class UpdateProfileRequest {
     private String location;
     private String introduction;
     private String mbti;
-    private String favoriteImageUrl;
+    private List<String> favoriteImageUrls;
     private String profileImageUrl;
 } 
